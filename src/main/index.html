@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> Game Keeper V 0.1.0</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="../../bower_components/font-roboto/roboto.html">
+
+    <style>
+        html, body{
+            height: 100%;
+            margin: 0;
+            background-color: #E5E5E5;
+            font-family: 'RobotoDraft', sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+        }
+        @media (min-width: 481px) {
+            #tabs {
+                width: 200px;
+            }
+            .container {
+                width: 400px;
+            }
+        }
+        core-header-panel{
+            height: 100%;
+            overflow: auto;
+            -webkit-overflow-scrolling:touch;
+        }
+        core-toolbar{
+            background: #03a9f4;
+            color: #ffffff;
+        }
+
+        #tabs{
+            width: 100%;
+            margin: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body unresolved fullbleed vertical layout>
+    <core-header-panel flex>
+        <core-toolbar id="mainHeader">
+
+        </core-toolbar>
+        <!-- main page content goes here -->
+        <paper-tabs id="tabs" selected="all" self-end>
+            <paper-tab name="all">All</paper-tab>
+            <paper-tab name="favorites">Favorites</paper-tab>
+        </paper-tabs>
+    </core-header-panel>
+</body>
+<script>
+    var tabs = document.querySelector('paper-tabs');
+    console.info('tabs', tabs);
+    tabs.addEventListener('core-select', function(){
+        console.log('Selected '+ tabs.selected);
+    });
+
+</script>
+</html>
